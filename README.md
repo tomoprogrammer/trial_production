@@ -1,24 +1,21 @@
-# README
+# ouchi money
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+支出を記録して、いくら使ったかを自動で計算してくれます。日別の合計額や、費用別の合計額を算出することも可能です。
+また、重要な出費にはマークをしたり、メモを残すこともできます。グラフにて分かりやすく表示してくれます。
+(進捗状況により、変更となる場合があります。)
 
-Things you may want to cover:
+### サイトテーマ
+使い過ぎを避けるために、どこでどの程度出費をしたか記録し、管理するためのアプリです。
 
-* Ruby version
+### テーマを選んだ理由
+前職は金融機関で勤めており、実際にお金の管理ができるアプリを作成してみたいと思い作成しました。
 
-* System dependencies
+### ターゲットユーザ
+ 夫婦や一人暮らしなど、生計を立てている人
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+ ### 主な利用シーン
+  主に月初、月末など
+ または高額な出費をした時
+ 
+ 
