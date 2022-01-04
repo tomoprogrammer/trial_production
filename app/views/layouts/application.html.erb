@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TrialProduction</title>
+    <title>ouchi_money</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <script src="https://kit.fontawesome.com/37a1a86a06.js" crossorigin="anonymous"></script>
@@ -10,6 +10,46 @@
   </head>
 
   <body>
+     <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-warning" >
+          <div class="container">
+            <%= link_to "Ouchi-money", root_path, class: "navbar-brand" %>
+            <div class="container">
+              <ul class="list-group-horizontal navbar-nav ml-auto">
+                <% if user_signed_in? %>
+                  <li class="margin-right">
+                    <%= link_to "マイページ", user_path(current_user.id), class: "fas fa-user nav-info text-info mr-2" %>
+                  </li>
+                  <li class="margin-right">
+                    <%= link_to "出費記録", new_money_path, class: "fas fa-edit nav-info text-info mr-2" %>
+                  </li>
+                  <li class="margin-right">
+                    <%= link_to "出費一覧", moneys_path, class: "fas fa-yen-sign  nav-info text-info mr-2" %>
+                  </li>
+                  <li class="margin-right">
+                    <%= link_to "ユーザー一覧", users_path, class: "fas fa-users nav-info text-info mr-2" %>
+                  </li>
+                  <li class="margin-right">
+                    <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "fas fa-door-closed nav-info text-info mr-2" %>
+                  </li>
+                <% else %>
+                  <li>
+                    <%= link_to "新規登録", new_user_registration_path, class: "fas fa-user-plus nav-info text-info mr-2" %>
+                  </li>
+                  <li>
+                    <%= link_to "ログイン", new_user_session_path, class: "fas fa-door-open nav-info text-info mr-2" %>
+                  </li>
+                  <li class="margin-right">
+                  <%= link_to "このサイトについて", home_about_path, class: "fas fa-chalkboard nav-info text-info mr-2" %>
+                  </li>
+                <% end %>
+                </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+  <main>
     <%= yield %>
+  </main>
   </body>
 </html>
