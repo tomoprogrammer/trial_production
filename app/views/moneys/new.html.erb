@@ -1,0 +1,17 @@
+ <div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h1>出費登録</h1>
+       <%#= form_with model: @money, local:true do |f| %>-->
+         <h4>出費額(半角で入力)</h4>
+         <%#= f.text_field :payment, class:"form-control, size: 20" %>歩
+
+         <h4>概要(例：食費、交通費など)</h4>
+         <%#= f.text_area :memo, class:"form-control" %>
+
+         <div class="p-3"></div>
+         <%#= f.submit '出費を保存', class:"btn btn-success " %>
+       <#% end %>
+     </div>
+  </div>
+</div>
