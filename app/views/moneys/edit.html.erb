@@ -1,0 +1,14 @@
+<h1>出費修正</h1>
+        <%= form_with model: @money, local:true do |f| %>
+          <h4>出費額(半角で入力)</h4>
+          <%= f.text_field :, class:"form-control money_payment" %>
+
+          <h4>概要(例：食費、交通費など)</h4>
+          <%= f.text_area :memo, class:"form-control money_memo" %>
+
+          <div class="p-3"></div>
+          <%= f.submit '修正する', class:"btn btn-success" %>
+        <% end %>
+      </div>
+    </div>
+  </div>

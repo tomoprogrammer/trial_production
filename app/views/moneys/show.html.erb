@@ -1,0 +1,29 @@
+<table class="table table-striped table-hover">
+      <tbody>
+       <tr id="money<%= @money.id %>">
+         <td>
+             <%=link_to user_path(@user.id) do %>
+               <%= @user.name %>
+             <% end %>
+         </td>
+          <td>
+            <%= @money.payment %>円
+          </td>
+          <td>
+            <%= @money.memo %>
+          </td>
+
+          <% if @money.user == current_user %>
+            <td>
+              <%= link_to "修正する", edit_money_path(@money.id), class: "btn btn-sm btn-success" %>
+            </td>
+            <td>
+              <%= link_to "取消", money_path(@money.id), method: :delete, class: "btn btn-sm btn-danger", "data-confirm" => "本当に削除しますか？" %>
+            </td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>

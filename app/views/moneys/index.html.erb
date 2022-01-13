@@ -1,0 +1,36 @@
+<h1>出費一覧</h1>
+         <table class="table table-hover table-inverse">
+           <thead>
+             <tr>
+               <th>ユーザー</th>
+               <th><%= sort_order "created_at", "保存日時" %></th>
+               <th><%= sort_order "payment", "金額" %></th>
+               <th>概要</th>
+
+             </tr>
+           </thead>
+             <tbody>
+               <% @moneys.each do |money| %>
+               <tr id="money_<%= money.id %>">
+
+                   <td>
+                     <%= link_to money.created_at.strftime('%Y/%m/%d'), money_path(money.id) %>
+                   </td>
+                   <td>
+                     <%= money.payment %>円
+                   </td>
+                   <td>
+                     <%= money.memo %>
+                   </td>
+
+
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+          <div style="text-align: center;">
+            <%= paginate(@money) %>
+          </div>
+    </div>
+  </div>
+</div>
