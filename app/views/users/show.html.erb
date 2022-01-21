@@ -1,0 +1,45 @@
+<table class="table table-striped table-hover">
+     <thead>
+      <tr>
+       <th>ユーザー名</th>
+       <td class="profile-name"><%= @user.name %></td>
+      </tr>
+      <tr>
+       <th>自己紹介</th>
+       <td class="introduction"><%= @user.introduction %></td>
+       </tr>
+       
+     </thead>
+    </table>
+   <% end %>
+
+<h3><%= @user.name %>さんの出費</h3>
+合計 : <%= @user.moneys.sum(:payment) %>円
+  <table class="table table-hover table-inverse">
+    <thead>
+      <tr>
+        <th><%= sort_order "created_at", "記録日時" %></th>
+        <th><%= sort_order "payment", "歩数" %></th>
+        <th>メモ</th>
+        <th>写真</th>
+       </tr>
+     </thead>
+     <tbody>
+       <% @moneys.each do |money| %>
+         <tr>
+           <td>
+             <%= link_to money.created_at.strftime('%Y/%m/%d'), money_path(money.id) %>
+           </td>
+           <td>
+             <%= money.payment %>
+           </td>
+           <td>
+             <%= money.memo %>
+           </td>
+         </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div style="text-align: center;">
+    <%= paginate(@moneys) %>
+  </div>
