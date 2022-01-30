@@ -1,4 +1,5 @@
 class MoneysController < ApplicationController
+  helper_method :sort_column, :sort_direction
 
   def new
     @money = Money.new
