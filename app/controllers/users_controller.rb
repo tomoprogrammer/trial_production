@@ -27,5 +27,18 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :introduction)
   end
+  
+  def sort_direction
+    %w(asc desc).include?(params[:direction]) ? params[:direction] : 'asc'
+  end
+
+  def sort_column
+    Money.column_names.include?(params[:sort]) ? params[:sort] : 'id'
+  end
+  
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to user_path(current_user) unless @user == current_user
+  end
 
 end

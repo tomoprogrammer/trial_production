@@ -44,5 +44,13 @@ class MoneysController < ApplicationController
   def money_params
     params.require(:money).permit(:payment, :memo)
   end
+  
+  def sort_direction
+    %w(asc desc).include?(params[:direction]) ? params[:direction] : 'asc'
+  end
+
+  def sort_column
+    Money.column_names.include?(params[:sort]) ? params[:sort] : 'id'
+  end
 
 end
