@@ -8,6 +8,7 @@ class MoneysController < ApplicationController
   def create
     @money = Money.new(money_params)
     @money.user_id = current_user.id
+    @money.save
     redirect_to moneys_path
   end
   
