@@ -10,18 +10,21 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @moneys = @user.money
+    @moneys = @user.moneys.page(params[:page]).per(10)
     @money = Money.new
   end
 
   def edit
     @user = User.find(params[:id])
-    render :edit
   end
 
   def update
     @user = User.find(params[:id])
-    redirect_to user_path(@user.id)
+    if @user.update(user_params)
+     redirect_to user_path(@user.id)
+    else
+     render :edit
+    end
   end
 
   def user_params
